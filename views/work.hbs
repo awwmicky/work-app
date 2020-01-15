@@ -1,0 +1,25 @@
+<main>
+
+<h2>Work for Hire</h2>
+
+<br>
+
+<section>
+    {{#each data}}
+    <div id="content">
+        <h3>{{ this/title }}</h3>
+        <p>{{ this/description }}</p>
+        <div>
+            <p>{{ this/budget }}</p>
+            <button>apply now</button>
+        </div>
+        <p>
+            <span>tech tools: </span>
+            <span>{{ this/technologies }}</span>
+        </p>
+        <a href="#">{{ this.contact_email }}</a>
+    </div>
+    {{/each}}
+</section>
+
+</main>

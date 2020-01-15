@@ -1,0 +1,69 @@
+< Q & A >
+
+^ IS THERE A DIFERENCE?
+
+app.use( express.static('./public/') )
+
+const path = require('path');
+app.use(
+    express.static(
+        path.join(
+            __dirname,
+            './public/'
+        )
+    )
+)
+
+
+
+- why did you name it config/?
+    - to store schema.sql/seed.sql
+    - to store connection.js
+- should I make a public/ or client/?
+    - to store assets file?
+    - css | js | fonts | images
+
+= connection database =
+^ edit default options
+- new Sequelize(_,_,_,{ [config] })
+- logging : console.log | false
+- define: {
+    freezeTableName: true | false
+    timestamps: true | false
+}
+- sync: { force: true | false }
+
+- logging : show/hide logs
+    - can apply to 'db.sync({ [config] })
+    - customLog = (...msg) => console.log(msg)
+    - sequelize.options.logging = msg =>{log = msg,console.log(msg)} ;
+- freezeTableName : enable/disable pluralize table name
+- timestamps : enable/disable createAt & updateAt
+- force : always sync for models (table)
+
+^ npm sequelize setup
+- sequelize : database connection
+    - authenticate | import
+    - sequlize client fn()
+- Sequelize : Sequelize Library
+
+
+= GET search =
+- search by technologies string
+- find sub-string chunk containining [word]
+- '%' : anything
+    - e.g: %+word+% : [any]+word+[any]
+- Op.like * ???
+
+
+= <form> =
+- action="/[url-route]/"
+    - connects to router path
+- method="[GET/POST]"
+    - select type of request
+- <input name="[data-name]">
+    - sends data as object
+- requesting data
+    - req.query : ?[data-name]='[value]'
+    - req.params : url/:[params]
+    - req.body : /url → body: { [data-name] }

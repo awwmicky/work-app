@@ -1,0 +1,90 @@
+<main>
+
+<h2>Post Jobs</h2>
+
+{{#each errors}}
+<div>
+    <p>{{ this/message }}</p>
+</div>
+{{/each }}
+
+<form action="/api/add" method="POST">
+{{!-- <form> --}}
+    <fieldset>
+        <legend>add work</legend>
+        {{!-- required --}}
+        <div>
+            <label for="title">
+                Job Title
+            </label>
+            <br>
+            <input 
+                type="text" 
+                name="title" 
+                class="title-input" 
+                placeholder="enter title" 
+                autocomplete="off"
+                value="{{ data/title }}"
+            />
+        </div>
+        <div>
+            <label for="technologies">
+                Technologies Needed
+            </label>
+            <br>
+            <input 
+                type="text" 
+                name="technologies" 
+                class="tech-input" 
+                placeholder="enter technologies" 
+                autocomplete="off"
+                value="{{ data/technologies }}"
+            />
+        </div>
+        <div>
+            <label for="budget">
+                Budget
+            </label>
+            <br>
+            <input 
+                type="number" 
+                name="budget" 
+                class="budget-input" 
+                placeholder="enter budget" 
+                autocomplete="off" 
+                step="1000"
+                value="{{ data/budget }}"
+            />
+        </div>
+        <div>
+            <label for="description">
+                Job Description
+            </label>
+            <br>
+            <textarea 
+                name="description" 
+                class="desc-input" 
+                placeholder="describe the work"
+                style="resize: none"
+                cols="30" rows="10"
+            />{{ data/description }}</textarea>
+        </div>
+        <div>
+            <label for="email">
+                Contact Email
+            </label>
+            <br>
+            <input 
+                type="text" 
+                name="contact_email"
+                class="email-input" 
+                placeholder="enter email" 
+                autocomplete="off"
+                value="{{ data/contact_email }}"
+            />
+        </div>
+        <input type="submit" value="SUBMIT">
+    </fieldset>
+</form>
+
+</main>
